@@ -54,14 +54,13 @@ cargo install --path stacks-signer-mini
 ## Configuration
 The signer takes a TOML config file with the following expected properties
 
-| Key.                 	| Required | Description                                                                                                                                              	|
+| Key.                 	| Required | Description                                                                                                                                              	     |
 | ------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `private_key`        	| `true`   | Stacks private key of the signer, used for signing sBTC transactions.                                                                                    	|
-| `stacks_node_rpc_url`	| `true`   | Stacks node RPC URL that points to a node running the stackerDB instance which is used for signer communication and transaction monitoring and broadcasting. |
-| `bitcoin_node_rpc_url`   | `true`   | Bitcoin node RPC URL used for transaction monitoring and broadcasting.                                                                                   	|
+| `private_key`        	| `true`   | Stacks private key of the signer, used for signing sBTC transactions.                                                                                    	     |
+| `stacks_node_rpc_url`	| `true`   | Stacks node RPC URL that points to a node running the stackerDB instance which is used for signer communication and transaction monitoring and broadcasting.    |
+| `bitcoin_node_rpc_url`   | `true`   | Bitcoin node RPC URL used for transaction monitoring and broadcasting.                                                                                       |
 | `network`            	| `false`  | One of `['Mainnet', 'Testnet','Devnet' ]`. Defaults to `Testnet`                                                                                         	|
-| `signer_api_server_url`  | `false`  | Url at which to host the signer api server for transaction monitoring. Defaults to "http://localhost:3001".                                              	|
-| `signer_ui_url`      	| `false`  | Url at which to host the signer UI for manually approving transactions. Defaults to "http://localhost:3000".                                             	|
+| `signer_api_server_url`  | `false`  | Url at which to host the signer api server for transaction monitoring. Defaults to "http://localhost:3000".                                              	|
 | `auto_deny_block`    	| `false`  | Number of blocks before signing deadline to auto deny a transaction waiting for manual review. Defaults to 10.                                           	|
 | `auto_approve_max_amount`| `false`  | Maximum (btc?) amount of a transactions that will be auto approved                                                                                       	|
 | `auto_deny_addresses_btc`| `false`  | List of bitcoin addresses that should trigger an auto deny                                                                                               	|
