@@ -56,16 +56,17 @@ The signer takes a TOML config file with the following expected properties
 
 | Key.                 	| Required | Description                                                                                                                                              	     |
 | ------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `private_key`        	| `true`   | Stacks private key of the signer, used for signing sBTC transactions.                                                                                    	     |
+| `signer_private_key`        	| `true`   | Stacks private key of the signer, used for signing sBTC transactions.                                                                                    	     |
 | `stacks_node_rpc_url`	| `true`   | Stacks node RPC URL that points to a node running the stackerDB instance which is used for signer communication and transaction monitoring and broadcasting.    |
 | `bitcoin_node_rpc_url`   | `true`   | Bitcoin node RPC URL used for transaction monitoring and broadcasting.                                                                                       |
-| `network`            	| `false`  | One of `['Mainnet', 'Testnet','Devnet' ]`. Defaults to `Testnet`                                                                                         	|
+| `revealer_rpc_url`     | `true` | Revealer RRC URL |                                                                                                                                               |
+| `network`            	| `false`  | One of `['Signet', 'Regtest', 'Testnet', 'Bitcoin']`. Defaults to `Testnet`                                                                                         	|
 | `signer_api_server_url`  | `false`  | Url at which to host the signer api server for transaction monitoring. Defaults to "http://localhost:3000".                                              	|
 | `auto_deny_block`    	| `false`  | Number of blocks before signing deadline to auto deny a transaction waiting for manual review. Defaults to 10.                                           	|
 | `auto_approve_max_amount`| `false`  | Maximum (btc?) amount of a transactions that will be auto approved                                                                                       	|
-| `auto_deny_addresses_btc`| `false`  | List of bitcoin addresses that should trigger an auto deny                                                                                               	|
-| `auto_deny_addresses_stx`| `false`  | list of stx addresses that should trigger an auto approve                                                                                                	|
-
+| `auto_deny_addresses_btc`| `false`  | List of bitcoin addresses that trigger an auto deny                                                                                               	|
+| `auto_deny_addresses_stx`| `false`  | List of stx addresses that trigger an auto deny                                                                                                	|
+| `auto_deny_deadline_blocks` | `false` | The number of blocks before deadline at which point the transaction will be auto denied. Default is 10 blocks.                                                |
 ### Example TOML file
 ```toml
 # config.toml
@@ -76,20 +77,19 @@ The signer takes a TOML config file with the following expected properties
 signer_private_key = "MY_PRIVATE_KEY"
 stacks_node_rpc_url = "http://localhost:9776"
 bitcoin_node_rpc_url = "http://localhost:9777"
+revealer_rpc_url = "http://locahost:9778"
 
 # Optional fields
-
-auto_approve_max_amount = 500000
 network = "Devnet"
-# Note: replace "BTC_ADDRESS_*" with actual BTC addresses you wish to deny
+auto_approve_max_amount = 500000
 auto_deny_addresses_btc = [
 	"BTC_ADDRESS_1",
 	"BTC_ADDRESS_2"
 ]
-# Note: replace "STX_ADDRESS" with an actual STX address you wish to deny
 auto_deny_addresses_stx = [
 	"STX_ADDRESS"
 ]
+auto_deny_deadline_blocks = 120
 ```
 
 
