@@ -80,7 +80,7 @@ bitcoin_node_rpc_url = "http://localhost:9777"
 revealer_rpc_url = "http://locahost:9778"
 
 # Optional fields
-network = "Devnet"
+network = "Signet"
 auto_approve_max_amount = 500000
 auto_deny_addresses_btc = [
 	"BTC_ADDRESS_1",
