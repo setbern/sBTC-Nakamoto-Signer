@@ -20,24 +20,24 @@ If you wish to compile the default binary from source, follow the steps outlined
 
 1. First, clone the Stacks sBTC mono repository:  
 ```console
-git clone https://github.com/Trust-Machines/stacks-sbtc.git
+git clone git@github.com:stacks-network/stacks-blockchain.git
 ```
-2. Next, navigate to the stacks-signer-mini directory:  
+2. Next, navigate to the stacks-signer directory:  
 ```console
-cd stacks-sbtc/stacks-signer-mini
+cd stacks-blockchain/stacks-signer
 ```
 3. Checkout the appropriate release branch you wish to use if you are not using the default main branch
 ```console
 git checkout main
 ```
 4. Compile the signer binary:  
-Note the binary path defaults to `target/release/stacks-signer-mini`.
+Note the binary path defaults to `target/release/stacks-signer`.
 ```console
 cargo build --release
 ```
 
 ### Downloading the Binary
-1. First, download the precompiled default [TODO: signer binary](LINK).
+1. First, download the precompiled default [TODO:NEED:LINK](LINK).
 
 2. Untar the file
 ```console
@@ -48,7 +48,7 @@ After running the untar command, the contents of the tar file should be extracte
 
 2. Next, install the signer.
 ```console
-cargo install --path stacks-signer-mini
+cargo install --path stacks-signer
 ```
 
 ## Configuration
